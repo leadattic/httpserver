@@ -1,8 +1,9 @@
 import socket
 import urls
+import setup
 
-HOST = '127.0.0.1'  # Use '0.0.0.0' to listen on all available network interfaces
-PORT = 8080
+HOST = '0.0.0.0'
+PORT = setup.PORT
 
 def handle_client(client_socket):
     request_data = client_socket.recv(1024)

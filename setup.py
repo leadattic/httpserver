@@ -2,7 +2,9 @@ import os
 """
 SETUP
 """
+
+PORT = 80
+
+USE_CACHING = True 
 FILES_PATH = os.getcwd() + "/files/"
 
-def get_files_path():
-    return FILES_PATH
