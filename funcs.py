@@ -9,7 +9,7 @@ def open_file_get_string(path, USE_CACHING=setup.USE_CACHING, file_content=""): 
         if path in cache.keys(): # Check if file is in cache
             file_content = cache.get(path)
         else: # Add file to cache
-            file = open(setup.FILES_PATH()+path, "r")
+            file = open(setup.FILES_PATH+path, "r")
             file_content = file.read()
             cache[path] = file_content
             file.close()
