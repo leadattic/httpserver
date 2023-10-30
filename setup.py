@@ -5,6 +5,9 @@ SETUP
 
 PORT = 80
 
-USE_CACHING = True 
+USE_CACHING = True
+CACHE_LIMIT = 1024  # The maximum allowed size of cache in MB
+CACHE_DISALLOW = []  # Disallowed file extensions (for cache)
+
 FILES_PATH = os.getcwd() + "/files/"
 
