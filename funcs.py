@@ -12,7 +12,8 @@ def open_file_get_string(path, use_caching=setup.USE_CACHING, file_content=""): 
         else:  # Add file to cache
             file = open(setup.FILES_PATH + path, "r")
             file_content = file.read()
-            if not path.split(".").reverse()[0] in setup.CACHE_DISALLOW and sys.getsizeof(cache) + len(file_content.encode('utf-8')) <= setup.CACHE_LIMIT * 1000000:  # TODO: make sure all math and funcs are correct
+            print(path.split(".")[::-1][0])
+            if not path.split(".")[::-1][0] in setup.CACHE_DISALLOW and sys.getsizeof(cache) + len(file_content.encode('utf-8')) <= setup.CACHE_LIMIT * 1000000:  # TODO: make sure all math and funcs are correct
                 cache[path] = file_content
 
             file.close()
