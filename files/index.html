@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Index of test server</title>
-        <meta charset="UTF-8"></meta>
+        <title>Bästa Läraren </title>
+        <meta charset="utf-8"></meta>
     </head>
 
     <body>
-        <h1>Index of test server</h1>
-        <p>Put docs or sum here <code>print("Hello World!")</code></p>
+        <h1 id="text">Rösta på vilken lärare som är bäst på stadsöskolan</h1>
+        <p id="text">Välj Lärare</p><br>
+        <select id="larare">
+            <option value="1" id="text">Lärare 1</option>
+        </select>
+        <button onclick="send()">Skicka</button>
+
+        <script>
+            function send(){
+                const value = document.getElementById("larare").value
+                window.location.href = "http://localhost:80/send?value="+value
+            }
+            
+
+        </script>
     </body>
 </html>

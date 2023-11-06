@@ -3,12 +3,22 @@ from funcs import read_file, open_file_get_string
 
 
 def get_body_from_path(path):
-
+    print(path)
+    path = path.split("?")[0]
+    paramaters = ""
+    try:
+        paramaters = path.split("?")
+    except Exception:
+        print("No paramaters")
     body = "" # Better way to do this than to define
 
     try:
         if path == "/":
             body = read_file("index.html")
+        elif path == "send/": # TODO: check if it is correct
+            value = paramaters.split('=')[1]
+            print(value)
+            body = read_file("send.html")
         else: # If 
             body = read_file("errors/404.html")
 
