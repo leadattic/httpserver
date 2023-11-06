@@ -1,8 +1,8 @@
-import setup
-from funcs import read_file, open_file_get_string
+from funcs import read_file
 
 
 def get_body_from_path(path):
+    body = ""  # Better way to do this than to define
     print(path)
     path = path.split("?")[0]
     paramaters = ""
@@ -15,11 +15,7 @@ def get_body_from_path(path):
     try:
         if path == "/":
             body = read_file("index.html")
-        elif path == "send/": # TODO: check if it is correct
-            value = paramaters.split('=')[1]
-            print(value)
-            body = read_file("send.html")
-        else: # If 
+        else:  # If
             body = read_file("errors/404.html")
 
     except Exception as e:
@@ -27,9 +23,7 @@ def get_body_from_path(path):
         print(e)
         body = read_file("errors/500.html")
 
-
-    return bytes(body, 'utf-8') # String now converted to bytes here
-
+    return bytes(body, 'utf-8')  # String now converted to bytes here
 
 
 # Please put your own functions here :)
