@@ -23,12 +23,12 @@ def open_file_get_string(path, use_caching=setup.USE_CACHING, file_content=""): 
         file.close()
         print(file_content)
 
-    return file_content
+    return bytes(file_content, encoding="utf-8")
 
 
 def get_static(path):  #Funky func
     if path.split(".")[::-1][0] in ["css", "htm", "html", "htmx", "txt", "js", "md"]:
-        return "utf-8"
+        return "r"
     else:  # pray file is binary and proceed accordingly
         return "rb"  # Hopefully correct mode indicator thing
             
