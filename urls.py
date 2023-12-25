@@ -25,7 +25,7 @@ def get_body_from_path(path):
         print(path)
         path = path.replace("/", "", 1)
         print(path)
-        fl = open(setup.FILES_PATH + path.replace("/", "\\"), mode="rb")
+        fl = open(setup.FILES_PATH + path, mode="rb")
         body = fl.read()
         fl.close()
     else:  # If
