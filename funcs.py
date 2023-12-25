@@ -26,4 +26,10 @@ def open_file_get_string(path, use_caching=setup.USE_CACHING, file_content=""): 
     return file_content
 
 
+def get_static(path):  #Funky func
+    if path.split(".")[::-1][0] in ["css", "htm", "html", "htmx", "txt", "js", "md"]:
+        return "utf-8"
+    else:  # pray file is binary and proceed accordingly
+        return "rb"  # Hopefully correct mode indicator thing
+            
 read_file = open_file_get_string  # TODO: what alias to use?

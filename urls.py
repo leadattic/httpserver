@@ -1,9 +1,11 @@
 from funcs import read_file
-
+import funcs
+import setup
 
 def get_body_from_path(path):
-    body = ""  # Better way to do this than to define
     print(path)
+    encoding = "utf-8"  # by defauld encode to utf-8
+    body = ""  # Better way to do this than to define
     path = path.split("?")[0]
     paramaters = ""
     try:
@@ -15,6 +17,11 @@ def get_body_from_path(path):
     try:
         if path == "/":
             body = read_file("index.html")
+        elif path.startswith("/static/"):
+            encoding = funcs.get_static(path)
+            fl = open(setup.FILES_PATH + path, encoding=encoding)
+            body = fl.read()
+            fl.close()
         else:  # If
             body = read_file("errors/404.html")
 
@@ -22,8 +29,9 @@ def get_body_from_path(path):
 
         print(e)
         body = read_file("errors/500.html")
-
-    return bytes(body, 'utf-8')  # String now converted to bytes here
+    print(body)
+    print(bytes(body, mode="utf-8"))
+    return bytes(body, mode="utf-8")  # encoding now converted to bytes here
 
 
 # Please put your own functions here :)
